@@ -10,25 +10,29 @@ export default class RouletteGun extends React.Component {
         spinningTheChamber: false
     };
 
-    handleClick = e => {
+    handleClick = () => {
         this.setState({
             spinningTheChamber: true
         });
 
-        setTimeout(function () {
+        this.timeout = setTimeout(() => {
+
             const randomNumber = Math.ceil(Math.random() * 8);
+
             this.setState({
                 chamber: randomNumber,
                 spinningTheChamber: false
-            });
+            })
         }, 2 * 1000);
     };
 
     rouletteSpin() {
-        // let count = this.state.count;
-        if (this.spinningTheChamber === true) {
+        const chamber = this.state.chamber;
+        const spinningTheChamber = this.state.spinningTheChamber;
+        const bulletInChamber = this.props
+        if (spinningTheChamber === true) {
             return 'Spinning the chamber and pulling the trigger!';
-        } else if (this.chamber === this.bulletInChamber) {
+        } else if (chamber === bulletInChamber) {
             return 'Bang!';
         } else {
             return 'You Are Safe!';
@@ -36,14 +40,14 @@ export default class RouletteGun extends React.Component {
     }
 
     componentWillUnmount() {
-        clearTimeout(setTimeout);
+        clearTimeout(this.timeout);
     }
 
     render() {
         return (
             <div>
                 <button onClick={this.handleClick}>Spin Trigger!</button>
-                {this.state.spinningTheChamber && <p>{this.rouletteSpin()}</p>}
+                <p>{this.rouletteSpin()}</p>
             </div>
         );
     }
