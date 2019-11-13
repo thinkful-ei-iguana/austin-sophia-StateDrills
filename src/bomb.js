@@ -22,7 +22,7 @@ export default class Bomb extends React.Component {
     let count = this.state.count;
     if (count >= 8) {
         return 'BOOM!!';
-    } else if (count % 2 != 0) {
+    } else if (count % 2 !== 0) {
         return 'tock';
     } else if (count % 2 === 0) {
         return 'tick';
@@ -38,14 +38,4 @@ export default class Bomb extends React.Component {
             </div>
         );
     }
-
- 
-    
-
-
 }
-
-
-// Object.assign( previousState, 
-//     {quantity: state.quantity + 1}, 
-//     {quantity: state.quantity + 1}, ... )

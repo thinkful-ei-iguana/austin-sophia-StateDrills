@@ -7,7 +7,7 @@ export default class HelloToggle extends React.Component {
 
     handleClick = e => {
         this.setState({
-            who: 'Hello' + ' ' + e.currentTarget.innerText
+            who: 'Hello ' + e.currentTarget.innerText
         });
     };
    
