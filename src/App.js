@@ -3,6 +3,7 @@ import './App.css';
 import HelloToggle from './hello'
 import Bomb from './bomb'
 import RouletteGun from './roulette';
+import Accordion from './accordian';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <HelloToggle/>
       <Bomb/>
       <RouletteGun/>
+      <Accordion/>
     </div>
     )
   }
