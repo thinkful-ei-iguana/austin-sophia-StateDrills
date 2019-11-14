@@ -10,16 +10,20 @@ export default class RouletteGun extends React.Component {
         spinningTheChamber: false
     };
 
+<<<<<<< HEAD
     componentWillUnmount() {
         clearTimeout(this.timeout)
     }
 
+=======
+>>>>>>> 7fce6fc3f02d3f37af1e58497e216fda40f31355
     handleClick = () => {
         this.setState({
             spinningTheChamber: true,
         })
 
         this.timeout = setTimeout(() => {
+<<<<<<< HEAD
             const randomChamber = Math.ceil(Math.random() * 8)
       
             this.setState({
@@ -36,11 +40,32 @@ export default class RouletteGun extends React.Component {
           return 'spinning the chamber and pulling the trigger! ...'
         } else if (chamber === bulletInChamber) {
           return 'BANG!!!!!'
+=======
+
+            const randomNumber = Math.ceil(Math.random() * 8);
+
+            this.setState({
+                chamber: randomNumber,
+                spinningTheChamber: false
+            })
+        }, 2 * 1000);
+    };
+
+    rouletteSpin() {
+        const chamber = this.state.chamber;
+        const spinningTheChamber = this.state.spinningTheChamber;
+        const bulletInChamber = this.props
+        if (spinningTheChamber === true) {
+            return 'Spinning the chamber and pulling the trigger!';
+        } else if (chamber === bulletInChamber) {
+            return 'Bang!';
+>>>>>>> 7fce6fc3f02d3f37af1e58497e216fda40f31355
         } else {
           return 'You Are Safe!'
         }
       }
 
+<<<<<<< HEAD
       render() {
         return (
           <div className='RouletteGun'>
@@ -52,3 +77,18 @@ export default class RouletteGun extends React.Component {
         )
       }
     }
+=======
+    componentWillUnmount() {
+        clearTimeout(this.timeout);
+    }
+
+    render() {
+        return (
+            <div>
+                <button onClick={this.handleClick}>Spin Trigger!</button>
+                <p>{this.rouletteSpin()}</p>
+            </div>
+        );
+    }
+}
+>>>>>>> 7fce6fc3f02d3f37af1e58497e216fda40f31355
